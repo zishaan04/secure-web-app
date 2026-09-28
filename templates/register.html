@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Register - SecureApp{% endblock %}
+{% block content %}
+    <h1>Register</h1>
+    <form method="POST" class="form">
+        <label>Username
+            <input type="text" name="username" required pattern="[a-zA-Z0-9_]{3,20}" title="3-20 letters, numbers or underscore">
+        </label>
+        <label>Email
+            <input type="email" name="email" required>
+        </label>
+        <label>Password
+            <input type="password" name="password" required minlength="8">
+        </label>
+        <button type="submit">Create Account</button>
+    </form>
+{% endblock %}

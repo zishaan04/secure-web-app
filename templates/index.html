@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Home - SecureApp{% endblock %}
+{% block content %}
+    <h1>Welcome to SecureApp</h1>
+    <p>A small demo application showcasing secure authentication, authorization, and data storage practices.</p>
+    {% if not user %}
+        <p><a href="{{ url_for('register') }}">Create an account</a> or <a href="{{ url_for('login') }}">log in</a> to see the protected dashboard.</p>
+    {% endif %}
+{% endblock %}

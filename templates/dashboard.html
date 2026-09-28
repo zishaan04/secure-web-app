@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - SecureApp{% endblock %}
+{% block content %}
+    <h1>Dashboard</h1>
+    <p>This page is only visible to authenticated users. Your JWT was verified server-side to render this page.</p>
+    <ul>
+        <li><strong>Username:</strong> {{ user.sub }}</li>
+        <li><strong>Role:</strong> {{ user.role }}</li>
+    </ul>
+    {% if user.role == 'admin' %}
+        <p><a href="{{ url_for('admin_panel') }}">Go to Admin Panel</a></p>
+    {% else %}
+        <p><em>Note: you'll get a 403 if you try to visit /admin, since your role is "{{ user.role }}".</em></p>
+    {% endif %}
+{% endblock %}
